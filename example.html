@@ -1,0 +1,170 @@
+<div class="container">
+    <div class="wrapper">
+        <div class="accordion">
+            <div class="accordion__trigger">
+                
+                <!-- Your Content -->
+                <div class="custom-element-1">
+                    TITLE
+                </div>
+                <!-- End -->
+                
+            </div>
+
+            <div class="accordion__content">
+                
+                <!-- Your Content -->
+                <div class="custom-element-2"></div>
+                <div class="custom-element-3">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <!-- End -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+
+    * Component Classes */
+
+.accordion__trigger {
+    cursor: pointer;
+}
+
+.accordion__content {
+    height: 0;
+    overflow: hidden;
+}
+
+.accordion__content.expanded {
+    height: auto;
+}
+
+
+/* Demo Classes */
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 1200px;
+    padding: 3rem;
+}
+
+.wrapper {
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.custom-element-1 {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+    font-size: 3rem;
+    font-family: helvetica;
+    padding: 12px 24px;
+}
+
+.custom-element-2 {
+    border-top : 1px solid #333333;
+    margin: 0 24px;
+}
+
+.custom-element-3 {
+    padding: 24px;
+}
+</style>
+
+<script>
+function getElementAutoHeight(elem) {
+    // Create a hidden node on the page where we can put the element
+    var parentNode = elem.parentNode;
+    var shadowNode = document.createElement('div');
+    var elemClone = elem.cloneNode(true);
+
+    // Apply styles to the shadowNode before adding it to the DOM
+    shadowNode.style.position = 'absolute';
+    shadowNode.style.opacity = 0;
+    shadowNode.style.top = 0;
+    shadowNode.style.width = elem.offsetWidth + 'px';
+    shadowNode.style.zIndex = -1;
+
+    parentNode.appendChild(shadowNode);
+    shadowNode.appendChild(elemClone);
+
+    // Remove any transitions
+    elemClone.style.webkitTransition = '';
+    elemClone.style.mozTransition = '';
+    elemClone.style.transition = '';
+
+    elemClone.style.height = 'auto';
+
+    // Obtain the auto height
+    var height = elemClone.offsetHeight;
+
+    // Remove the shadowNode
+    parentNode.removeChild(shadowNode);
+
+    return height;
+}
+
+/**
+ * Main method to wire up the functionality of the accordions
+ */
+function setupAccordion(accordion) {
+    var trigger = accordion.getElementsByClassName('accordion__trigger')[0];
+    var content = accordion.getElementsByClassName('accordion__content')[0];
+    
+    // The transition property is programmatically added after so that accordions can initialise
+    // in the correct state without transitions enabled
+    content.style.transition = 'height 0.3s';
+    
+    trigger
+        .addEventListener('click', function() {
+            var component = this.parentNode;
+            var trigger = this;
+            var content = component.getElementsByClassName('accordion__content')[0];
+            var height = getElementAutoHeight(content);
+            
+            var isExpanded = content.classList.contains('expanded');
+            if (isExpanded) {
+                content.style.height = height + 'px';
+                content.classList.remove('expanded');
+                
+                // Wait for the height to be applied
+                setTimeout(function() {
+                    content.style.height = 0;
+                });
+            } else {
+                content.classList.add('expanded');
+                content.style.height = height + 'px';
+            }
+        });
+    
+    content
+        .addEventListener('transitionend', function(e) {        
+            // For height transitions, check to see if we are expanding
+            var isExpanded = content.classList.contains('expanded');
+            if (e.propertyName === 'height' && isExpanded) {
+                this.style.height = 'auto';
+            }
+        })
+}
+
+/**
+ * Initialise all accordions for the demo
+ */
+(function() {
+    var accordions = document.getElementsByClassName("accordion");
+    for (var accordion of accordions) {
+        setupAccordion(accordion);
+    }
+})()
+</script>
