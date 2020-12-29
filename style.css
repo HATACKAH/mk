@@ -24,7 +24,6 @@ body {
     z-index: -1;
     background-size: auto;
     background-position-x: 50%;
-    
 }
 
 .main-banner__content {
@@ -47,7 +46,6 @@ body {
     background-color: #12a06e;
     color: white;
     text-decoration: none;
-    
     border-radius: 10px;
     padding: 25px 20px;
     text-align: center;
@@ -170,7 +168,6 @@ body {
     margin-bottom: 10%;
 }
 
-
 .footer-wrapper {
     width: 100%;
     background-color: #ffffff;
@@ -214,12 +211,13 @@ body {
 }
 
 .active, .accordion:hover {
-   color: #ec7c30;
-   border: none;
+    color: #ec7c30;
+    border: none;
 }
+
 .active span, .accordion:hover span {
     color: #ffcfae;
- }
+}
 
 .accordion:after {
     content: url('img/toggle-btn.png');
@@ -240,9 +238,11 @@ body {
     border-radius: 10px;
     transition: max-height 0.3s ease-out;
 }
+
 .accordion-wrapper {
     margin-bottom: 35px;
 }
+
 @media (min-width: 1201px) and (max-width:1601px) {
     .main-banner {
         background-image: url(img/1600x632.png);
@@ -260,16 +260,14 @@ body {
         background-image: url(img/720.png);
         background-repeat: no-repeat;
     }
-
     .benefits-item {
         width: 145px;
     }
-    
-    .main-banner__content, .content-wrapper , .chavo, .footer {
+    .main-banner__content, .content-wrapper, .chavo, .footer {
         width: 92%;
     }
     .main-banner__buttons, .panel, .benefits-item, .content__text, .footer {
-        font-size: 14pt;
+        font-size: 12pt;
     }
     .content__title {
         font-size: 20pt;
@@ -302,7 +300,6 @@ body {
     .block-2 img {
         display: none;
     }
-
     .block-3 {
         background-image: url(img/content-3.png);
         background-repeat: no-repeat;
@@ -313,7 +310,6 @@ body {
     .block-3 img {
         display: none;
     }
-
     .block-4 {
         background-image: url(img/content-4.png);
         background-repeat: no-repeat;
@@ -324,24 +320,19 @@ body {
     .block-4 img {
         display: none;
     }
-
     .block-1 .content-block__body, .block-2 .content-block__body, .block-3 .content-block__body, .block-4 .content-block__body {
         margin-left: 33%;
     }
     .footer, .footer__social {
         flex-direction: column;
         text-align: center;
-        
     }
-
     .footer__social {
         padding-bottom: 30px;
     }
     .footer {
         padding-bottom: 10%;
     }
-     
-
     .footer__social div {
         display: flex;
         justify-content: space-around;
@@ -349,10 +340,19 @@ body {
     .footer__social p {
         padding-bottom: 20px;
     }
-
-
+    .main-banner__button-2 {
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+        height: fit-content;
+        padding: 20px 10px;
+    }
+    .main-banner__button-1 {
+        padding: 20px;
+        margin-right: 33px;
+    }
+    .main-banner__buttons {
+        flex-direction: unset;
+        width: auto;
+    }
 }
-
-
-
-
