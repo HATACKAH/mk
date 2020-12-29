@@ -424,5 +424,8 @@ body {
     .main-logo img {
         width: 170px;
     }
+    .panel ul {
+        padding: 0;
+    }
 
 }
