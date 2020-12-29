@@ -355,4 +355,13 @@ body {
         flex-direction: unset;
         width: auto;
     }
+    .header{
+        width: 90%;
+    }
+    .chavo-title {
+        font-size: 25pt;
+    }
+    .accordion {
+        font-size: 14pt;
+    }
 }
