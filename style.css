@@ -263,12 +263,9 @@ body {
         height: 532px;
     }
     .benefits-item {
-        width: 145px;
+        width: auto;
     }
-    .main-banner__content, .content-wrapper, .chavo, .footer {
-        width: 92%;
-        margin: 10px;
-    }
+    
     .main-banner__buttons, .panel, .benefits-item, .content__text, .footer {
         font-size: 12pt;
     }
@@ -372,12 +369,15 @@ body {
     .block-1 .content-block__body, .block-2 .content-block__body, .block-3 .content-block__body, .block-4 .content-block__body {
         margin-left: 33%;
     }
-}
-@media (max-width:700px) {
+    .main-banner__content, .content-wrapper, .chavo, .footer {
+        width: 92%;
+        margin: 10px;
+    }
     .main-logo img {
         width: 200px;
     }
 }
+
 
 @media (max-width:550px) {
     .main-banner__buttons {
@@ -413,6 +413,16 @@ body {
     }
     .footer {
         margin: 0;
+    }
+    .main-banner__content, .content-wrapper, .chavo, .footer {
+        width: 100%;
+        margin: 0;
+    }
+    .footer__social p, .copyright p {
+        font-size: 14pt;
+    }
+    .main-logo img {
+        width: 170px;
     }
 
 }
