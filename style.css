@@ -259,12 +259,15 @@ body {
     .main-banner {
         background-image: url(img/720.png);
         background-repeat: no-repeat;
+        background-size: contain;
+        height: 532px;
     }
     .benefits-item {
         width: 145px;
     }
     .main-banner__content, .content-wrapper, .chavo, .footer {
         width: 92%;
+        margin: 10px;
     }
     .main-banner__buttons, .panel, .benefits-item, .content__text, .footer {
         font-size: 12pt;
@@ -272,9 +275,9 @@ body {
     .content__title {
         font-size: 20pt;
     }
-    .block-2 .content-block__body, .block-4 .content-block__body {
+    /* .block-2 .content-block__body, .block-4 .content-block__body {
         margin-left: 406px;
-    }
+    } */
     .block-2 img, .block-4 img {
         position: absolute;
         left: 0;
@@ -320,9 +323,9 @@ body {
     .block-4 img {
         display: none;
     }
-    .block-1 .content-block__body, .block-2 .content-block__body, .block-3 .content-block__body, .block-4 .content-block__body {
+    /* .block-1 .content-block__body, .block-2 .content-block__body, .block-3 .content-block__body, .block-4 .content-block__body {
         margin-left: 33%;
-    }
+    } */
     .footer, .footer__social {
         flex-direction: column;
         text-align: center;
@@ -355,7 +358,7 @@ body {
         flex-direction: unset;
         width: auto;
     }
-    .header{
+    .header {
         width: 90%;
     }
     .chavo-title {
@@ -364,4 +367,52 @@ body {
     .accordion {
         font-size: 14pt;
     }
+}
+@media (min-width: 551px) and (max-width: 1100px) {
+    .block-1 .content-block__body, .block-2 .content-block__body, .block-3 .content-block__body, .block-4 .content-block__body {
+        margin-left: 33%;
+    }
+}
+@media (max-width:700px) {
+    .main-logo img {
+        width: 200px;
+    }
+}
+
+@media (max-width:550px) {
+    .main-banner__buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .main-banner__button-1 {
+        margin-right: 0px;
+    }
+    .benefits {
+        display: grid;
+        z-index: 1;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 3em;
+        grid-row-gap: 2em;
+    }
+    .block-2 .content-block__body, .block-4 .content-block__body, .block-1 .content-block__body, .block-3 .content-block__body {
+        margin-top: 1em;
+        margin-left: 1em;
+        margin-bottom: 3em;
+    }
+    .block-1, .block-2, .block-3, .block-4 {
+        background-image: none;
+    }
+    .content-block {
+        height: auto;
+    }
+    .chavo-title {
+        padding-bottom: 10%;
+    }
+    .footer__social {
+        width: 70%;
+    }
+    .footer {
+        margin: 0;
+    }
+
 }
