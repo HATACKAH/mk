@@ -150,6 +150,7 @@ body {
     width: 100%;
     background-image: url(img/pattern.jpg);
     background-repeat: repeat;
+    padding-bottom: 5%;
 }
 
 .chavo {
@@ -178,6 +179,7 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    padding-top: 3%;
 }
 
 .footer__social {
@@ -242,7 +244,9 @@ body {
 .accordion-wrapper {
     margin-bottom: 35px;
 }
-
+.panel ul li {
+    list-style: decimal;
+}
 @media (min-width: 1201px) and (max-width:1601px) {
     .main-banner {
         background-image: url(img/1600x632.png);
